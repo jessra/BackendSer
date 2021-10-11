@@ -1,15 +1,13 @@
 var express = require('express');
-var path = require('path');
-var bodyParser = require('body-parser')
+const morgan = require('morgan');
 
 var app = express();
 
-app.use(bodyParser.urlencoded({
-  extended: true,
-}))
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'))
 
 var routes = require("./routes/index");
-app.use("/protocolos",routes);
+app.use(routes);
 
 module.exports = app;
