@@ -11,7 +11,7 @@ var puentes = [{tiempoEnUso: 5, material: 'hierro', estado: 'excelente'},{tiempo
 
 /* GET */
 collector.get('/', function(req, res) {
-    res.send("Bienvenido! Este programa te permite mantener un registro de edificaciones de una ciudad. Para más información dirígete a /informacion");
+    res.send("Bienvenido! Este servidor te permite mantener un registro de edificaciones de una ciudad. Para más información dirígete a /informacion");
 })
 collector.get('/informacion', 
     function(req, res, next) {
@@ -209,49 +209,49 @@ collector.put('/editar/:construccion/:id?', function(req, res) {
 collector.delete('/eliminar/:construccion/:id?', function(req, res) {
     if(req.params.construccion === 'casas'){
         if(casas[req.params.id]){
-            casas.splice(0, req.params.id);
+            casas.splice(req.params.id, 1);
             res.send("Se ha eliminado correctamente la casa en el indice "+req.params.id+".");
         }else if(typeof req.params.id === 'undefined' || !casas[req.params.id]){
             res.send("Ingresa un índice existente.");
         };
     }else if(req.params.construccion === 'edificios'){
         if(edificios[req.params.id]){
-            edificios.splice(0, req.params.id);
+            edificios.splice(req.params.id, 1);
             res.send("Se ha eliminado correctamente el edificio en el indice "+req.params.id+".");
         }else if(typeof req.params.id === 'undefined' || !edificios[req.params.id]){
             res.send("Ingresa un índice existente.");
         };
     }else if(req.params.construccion === 'empresas'){
         if(empresas[req.params.id]){
-            empresas.splice(0, req.params.id);
+            empresas.splice(req.params.id, 1);
             res.send("Se ha eliminado correctamente la empresa en el indice "+req.params.id+".");
         }else if(typeof req.params.id === 'undefined' || !empresas[req.params.id]){
             res.send("Ingresa un índice existente.");
         };
     }else if(req.params.construccion === 'carreteras'){
         if(carreteras[req.params.id]){
-            carreteras.splice(0, req.params.id);
+            carreteras.splice(req.params.id, 1);
             res.send("Se ha eliminado correctamente la carretera en el indice "+req.params.id+".");
         }else if(typeof req.params.id === 'undefined' || !carreteras[req.params.id]){
             res.send("Ingresa un índice existente.");
         };
     }else if(req.params.construccion === 'parques'){
         if(parques[req.params.id]){
-            parques.splice(0, req.params.id);
+            parques.splice(req.params.id, 1);
             res.send("Se ha eliminado correctamente el parque en el indice "+req.params.id+".");
         }else if(typeof req.params.id === 'undefined' || !parques[req.params.id]){
             res.send("Ingresa un índice existente.");
         };
     }else if(req.params.construccion === 'comercios'){
         if(comercios[req.params.id]){
-            comercios.splice(0, req.params.id);
+            comercios.splice(req.params.id, 1);
             res.send("Se ha eliminado correctamente el comercio en el indice "+req.params.id+".");
         }else if(typeof req.params.id === 'undefined' || !comercios[req.params.id]){
             res.send("Ingresa un índice existente.");
         };
     }else if(req.params.construccion === 'puentes'){
         if(puentes[req.params.id]){
-            puentes.splice(0, req.params.id);
+            puentes.splice(req.params.id, 1);
             res.send("Se ha eliminado correctamente el puente en el indice "+req.params.id+".");
         }else if(typeof req.params.id === 'undefined' || !puentes[req.params.id]){
             res.send("Ingresa un índice existente.")
