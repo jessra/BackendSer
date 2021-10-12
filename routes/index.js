@@ -45,40 +45,67 @@ collector.get('/:construccion?', function(req, res, next) {
         console.log("Se han agregado "+casas.length+" casas en total.");
     }else if(req.params.construccion === 'edificios'){
         res.json(edificios);
-        console.log("Se han agregado "+edificios.length+" casas en total.");
+        console.log("Se han agregado "+edificios.length+" edificios en total.");
     }else if(req.params.construccion === 'empresas'){
         res.json(empresas);
-        console.log("Se han agregado "+empresas.length+" casas en total.");
+        console.log("Se han agregado "+empresas.length+" empresas en total.");
     }else if(req.params.construccion === 'carreteras'){
         res.json(carreteras);
-        console.log("Se han agregado "+carreteras.length+" casas en total.");
+        console.log("Se han agregado "+carreteras.length+" carreteras en total.");
     }else if(req.params.construccion === 'parques'){
         res.json(parques);
-        console.log("Se han agregado "+parques.length+" casas en total.");
+        console.log("Se han agregado "+parques.length+" parques en total.");
     }else if(req.params.construccion === 'comercios'){
         res.json(comercios);
-        console.log("Se han agregado "+comercios.length+" casas en total.");
+        console.log("Se han agregado "+comercios.length+" comercios en total.");
     }else if(req.params.construccion === 'puentes'){
         res.json(puentes);
-        console.log("Se han agregado "+puentes.length+" casas en total.");
+        console.log("Se han agregado "+puentes.length+" puentes en total.");
     }
-    next();
 });
 collector.get('/:construccion/:id', function(req, res) {
     if(req.params.construccion === 'casas'){
-        res.json(casas[req.params.id]);
+        if(casas[req.params.id]){
+            res.json(casas[req.params.id]); 
+        }else if(!casas[req.params.id]){
+            res.send("Ese indice no existe.");
+        };
     }else if(req.params.construccion === 'edificios'){
-        res.json(edificios[req.params.id]);
+        if(edificios[req.params.id]){
+            res.json(edificios[req.params.id]); 
+        }else if(!edificios[req.params.id]){
+            res.send("Ese indice no existe.");
+        };
     }else if(req.params.construccion === 'empresas'){
-        res.json(empresas[req.params.id]);
+        if(empresas[req.params.id]){
+            res.json(empresas[req.params.id]); 
+        }else if(!empresas[req.params.id]){
+            res.send("Ese indice no existe.");
+        };
     }else if(req.params.construccion === 'carreteras'){
-        res.json(carreteras[req.params.id]);
+        if(carreteras[req.params.id]){
+            res.json(carreteras[req.params.id]); 
+        }else if(!carreteras[req.params.id]){
+            res.send("Ese indice no existe.");
+        };
     }else if(req.params.construccion === 'parques'){
-        res.json(parques[req.params.id]);
+        if(parques[req.params.id]){
+            res.json(parques[req.params.id]); 
+        }else if(!parques[req.params.id]){
+            res.send("Ese indice no existe.");
+        };
     }else if(req.params.construccion === 'comercios'){
-        res.json(comercios[req.params.id]);
+        if(comercios[req.params.id]){
+            res.json(comercios[req.params.id]); 
+        }else if(!comercios[req.params.id]){
+            res.send("Ese indice no existe.");
+        };
     }else if(req.params.construccion === 'puentes'){
-        res.json(puentes[req.params.id]);
+        if(puentes[req.params.id]){
+            res.json(puentes[req.params.id]); 
+        }else if(!puentes[req.params.id]){
+            res.send("Ese indice no existe.");
+        };
     };
 });
 
